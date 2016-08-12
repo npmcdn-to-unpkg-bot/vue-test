@@ -1,0 +1,37 @@
+
+/**
+ * [$cdnPath description]
+ * http://stackoverflow.com/questions/8608498/have-a-variable-in-images-path-in-sass
+ * cdn
+ */
+$cdnPath: "http://7xrfqw.com1.z0.glb.clouddn.com/";
+
+/*截取字符串*/
+@define-mixin ellipsis $value {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: $(value);
+}
+
+/**
+ * image-set实现Retina屏幕下显示高清图片
+ * http://www.w3cplus.com/css/safari-6-and-chrome-21-add-image-set-to-support-retina-images.html
+ * http://devries.jp/snippets/image-sets/
+ * => @include png-image-set();
+ * ps插件＝》http://www.cutterman.cn/v2/cutterman
+ */
+
+@define-mixin image-set $img1,$img2 {
+    background-image:url('#{$cdnPath}#{$(img1)}');
+    background-image: -webkit-image-set(url('#{$cdnPath}#{$(img2)}') 2x);
+    background-image: image-set(url('#{$cdnPath}#{$(img2)}') 2x);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+
